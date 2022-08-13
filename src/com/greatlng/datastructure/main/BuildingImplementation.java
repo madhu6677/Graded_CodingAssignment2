@@ -1,35 +1,32 @@
 package com.greatlng.datastructure.main;
 
-public class BuildingImplementation {
-	
+	import java.io.IOException;
+	import java.util.PriorityQueue;
+	import java.util.Scanner;
 
-	public void searchValue(double priceArray[], double key) {
-		int left = 0;
-		int right = priceArray.length - 1;
-		int mid = left + (right - left) / 2;
+	import com.greatlng.datastructure.main.BuildingServices;
 
-		while (left <= right) {
+	public class BuildingImplementation {
 
-			if (key < priceArray[mid]) {
-				// range is l to mid-1
-				right = mid - 1;
-			} else if (key > priceArray[mid]) {
-				// range is mid+1 to r
-				left = mid + 1;
+		public static void main(String[] args) throws IOException {
 
-			} else {
-				System.out.println("floors of value " + key + " is present ");
-				break;
-			}
-			mid = left + (right - left) / 2;
-		}
+			Scanner sc = new Scanner(System.in);
 
-		if (left > right) {
-			System.out.println("Value not found");
+			System.out.println("enter the total no of floors in the building");
+			
+			int noOfFloor = sc.nextInt();
+
+		    int[] floors = new int[noOfFloor];
+			
+		   
+			for(int i=0; i<noOfFloor; i++)  
+			{  
+			System.out.println("enter the floor size given on day : "+(i+1));
+			floors[i] = sc.nextInt(); 
+			}  
+			System.out.println();
+			
+			BuildingServices service = new BuildingServices();
+			service.printConstructionTable(floors, noOfFloor);
 		}
 	}
-
-}
-
-
-

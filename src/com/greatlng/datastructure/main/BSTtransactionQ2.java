@@ -84,6 +84,7 @@ package com.greatlng.datastructure.main;
 		       
 		        int order = 0;
 		        flattenBTToSkewed(node, order);
+		        System.out.println("The resultant  output is :");
 		        traverseRightSkewed(headNode);
 		    }
 		}

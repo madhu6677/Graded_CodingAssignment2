@@ -1,21 +1,36 @@
 package com.greatlng.datastructure.main;
 
-public class BuildingServices {
-	
-		public void displayPricesAscendingOrder(double[] array) {
-			System.out.println("the order of construction is as follows :");
-			for(int i=0;i<array.length;i++)
-				System.out.print(array[i] + " ");
-			System.out.println();
-		}
-		public void displayPricesDescendingOrder(double[] array) {
-			System.out.println("floors days assending order in  are :");
-			for(int i=array.length-1;i>=0;i--)
-				System.out.print(array[i] + " ");
-			System.out.println();
-		}
+import java.util.PriorityQueue;
 
+public class BuildingServices {
 		
+		public void printConstructionTable(int floor[],int noOfFloor) {
+			
+		System.out.println("The order of construction is as follows");
+		PriorityQueue <Integer> queue = new PriorityQueue<>(java.util.Collections.reverseOrder());
+		
+		int[] tempArray = new int[noOfFloor];
+
+		int max = noOfFloor;
+
+		System.out.println();
+		for (int i = 0; i < noOfFloor; i++) {
+
+			System.out.println("Day: "+(i+1));
+						
+			tempArray[i] = floor[i];
+
+			queue.add(tempArray[i]);
+			
+			while (!queue.isEmpty() && queue.peek() == max) {
+
+				System.out.print(queue.poll() + " ");
+
+				max--;
+			}
+		System.out.println();
+		}
+	 }
 	}
 
 
